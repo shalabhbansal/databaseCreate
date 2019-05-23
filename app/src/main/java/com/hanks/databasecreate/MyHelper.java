@@ -4,10 +4,11 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class MyHelper extends SQLiteOpenHelper {
     private static final String dbname = "mydb";
-    private static final int version = 1 ;
+    private static final int version = 2 ;
     public MyHelper(Context context)
     {
         super(context , dbname , null , version);
@@ -35,8 +36,10 @@ public class MyHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
+    {
+         //when there is a difference between the versions of the app then onUpgrade method is called
+        Log.d("my code","on upgrade is called");
     }
 }
 
